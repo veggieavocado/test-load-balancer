@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: example-nginx
+    build: ./nginx
+    links:
+      - example:example
+    ports:
+      - 80:80
+    depends_on:
+      - example
+    restart: unless-stopped
+
+  example:
+    container_name: example-app
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - IP=45.32.33.247
+    restart: unless-stopped
