@@ -12,5 +12,5 @@ app.listen(8080, () => {
 
 app.get('/', (req, res) => {
   res.status(200);
-  res.send({ ip: process.env.IP });
+  res.send({ status: process.env.IP });
 });
